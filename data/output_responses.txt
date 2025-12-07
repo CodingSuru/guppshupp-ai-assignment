@@ -1,0 +1,15 @@
+BEFORE (Neutral Response):
+You should take a break and manage your time better. Try focusing on one task at a time.
+
+
+AFTER (Personality: CALM_MENTOR):
+Let's take this step by step.  Finally, You should take a break and manage your time better. Try focusing on one task at a time..  Remember, you're making progress. Small steps lead to big results.
+
+
+AFTER (Personality: WITTY_FRIEND):
+Yo, listen up! 😎  Here's the deal: You should take a break and manage your time better. Try focusing on one task at a time..  Easy peasy, right? You got this, champ! 🎯
+
+
+AFTER (Personality: THERAPIST):
+I hear what you're saying, and that's completely valid.  I understand that You should take a break and manage your time better. Try focusing on one task at a time.. It's okay to take a pause.  Remember, it's okay to feel this way. Take your time, and be gentle with yourself.
+

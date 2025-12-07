@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "total_messages": 30,
+    "extraction_timestamp": "2025-12-04T14:31:14.524032",
+    "version": "1.0"
+  },
+  "preferences": {
+    "likes": [
+      {
+        "value": "playing open world games like gta and red dead redemption",
+        "message_index": 3,
+        "original_message": "I love playing open world games like GTA and Red Dead Redemption."
+      },
+      {
+        "value": "hobby is creating digital art and game concepts",
+        "message_index": 8,
+        "original_message": "My favorite hobby is creating digital art and game concepts."
+      },
+      {
+        "value": "learning new programming languages",
+        "message_index": 9,
+        "original_message": "I enjoy learning new programming languages, especially Python."
+      },
+      {
+        "value": "working on personal projects over assignments",
+        "message_index": 10,
+        "original_message": "I prefer working on personal projects over assignments."
+      },
+      {
+        "value": "exploring new game mechanics and design patterns",
+        "message_index": 22,
+        "original_message": "I love exploring new game mechanics and design patterns."
+      },
+      {
+        "value": "watching game development tutorials on youtube",
+        "message_index": 27,
+        "original_message": "I enjoy watching game development tutorials on YouTube."
+      },
+      {
+        "value": "pixel art and retro game aesthetics",
+        "message_index": 29,
+        "original_message": "I'm into pixel art and retro game aesthetics."
+      }
+    ],
+    "dislikes": [
+      {
+        "value": "repetitive tasks and boring lectures",
+        "message_index": 11,
+        "original_message": "I don't like repetitive tasks and boring lectures."
+      },
+      {
+        "value": "when people don't value creativity and innovation",
+        "message_index": 18,
+        "original_message": "I dislike when people don't value creativity and innovation."
+      }
+    ],
+    "goals": [
+      {
+        "value": "become a game developer in the future",
+        "message_index": 7,
+        "original_message": "I want to become a game developer in the future."
+      },
+      {
+        "value": "pursue game development after my bca",
+        "message_index": 14,
+        "original_message": "I am planning to pursue game development after my BCA."
+      },
+      {
+        "value": "create my own indie game someday",
+        "message_index": 15,
+        "original_message": "My dream is to create my own indie game someday."
+      },
+      {
+        "value": "learn unreal engine 5 properly this year",
+        "message_index": 19,
+        "original_message": "I wish to learn Unreal Engine 5 properly this year."
+      },
+      {
+        "value": "work at a top game studio like rockstar or naughty dog",
+        "message_index": 25,
+        "original_message": "I want to work at a top game studio like Rockstar or Naughty Dog."
+      },
+      {
+        "value": "build a portfolio with at least 3 complete games",
+        "message_index": 26,
+        "original_message": "My goal is to build a portfolio with at least 3 complete games."
+      }
+    ]
+  },
+  "emotional_patterns": {
+    "dominant": {
+      "emotion": "stressed",
+      "count": 4
+    },
+    "secondary": {
+      "emotion": "happy",
+      "count": 4
+    },
+    "all_emotions": {
+      "stressed": 4,
+      "happy": 4,
+      "excited": 2,
+      "angry": 1
+    },
+    "timeline": [
+      {
+        "message_index": 6,
+        "emotion": "stressed",
+        "original_message": "I'm feeling stressed about my CUET PG preparation these days."
+      },
+      {
+        "message_index": 12,
+        "emotion": "happy",
+        "original_message": "I'm excited about AI and machine learning technologies."
+      },
+      {
+        "message_index": 12,
+        "emotion": "excited",
+        "original_message": "I'm excited about AI and machine learning technologies."
+      },
+      {
+        "message_index": 13,
+        "emotion": "stressed",
+        "original_message": "Sometimes I feel overwhelmed with all the assignments and exams."
+      },
+      {
+        "message_index": 17,
+        "emotion": "happy",
+        "original_message": "I feel happy when I'm working on creative projects."
+      },
+      {
+        "message_index": 20,
+        "emotion": "stressed",
+        "original_message": "I'm stressed about balancing studies and personal projects."
+      },
+      {
+        "message_index": 23,
+        "emotion": "angry",
+        "original_message": "I get annoyed when things don't work as expected in code."
+      },
+      {
+        "message_index": 24,
+        "emotion": "happy",
+        "original_message": "I'm glad that I chose computer science as my field."
+      },
+      {
+        "message_index": 28,
+        "emotion": "stressed",
+        "original_message": "I feel tired sometimes from staying up late coding."
+      },
+      {
+        "message_index": 30,
+        "emotion": "happy",
+        "original_message": "I am excited about the future of interactive storytelling in games."
+      },
+      {
+        "message_index": 30,
+        "emotion": "excited",
+        "original_message": "I am excited about the future of interactive storytelling in games."
+      }
+    ]
+  },
+  "facts": {
+    "name": {
+      "value": "Suryansh Singh",
+      "message_index": 1,
+      "original_message": "I am Suryansh Singh, a BCA student at Babu Banarasi Das University.",
+      "confidence": 0.85
+    },
+    "education": {
+      "value": "BCA",
+      "message_index": 1,
+      "original_message": "I am Suryansh Singh, a BCA student at Babu Banarasi Das University.",
+      "confidence": 0.9
+    },
+    "admission_number": {
+      "value": "22SCSE1430066",
+      "message_index": 2,
+      "original_message": "My admission number is 22SCSE1430066.",
+      "confidence": 0.85
+    },
+    "location": {
+      "value": "Bahraigh",
+      "message_index": 16,
+      "original_message": "I live in Bahraigh, Uttar Pradesh, India.",
+      "confidence": 0.85
+    }
+  }
+}

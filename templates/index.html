@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUPPSHUPP AI - Memory & Personality Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 via-white to-red-50 min-h-screen">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white py-8 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center gap-3 mb-2">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <h1 class="text-4xl font-bold">GUPPSHUPP AI</h1>
+            </div>
+            <p class="text-pink-100 text-lg">Memory Extraction + Personality Engine Demo</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Tabs -->
+        <div class="flex gap-2 mb-6 border-b border-pink-200">
+            <button id="tab-input" class="tab-btn px-6 py-3 font-semibold text-red-600 border-b-2 border-red-500">
+                📝 Input Messages
+            </button>
+            <button id="tab-memory" class="tab-btn px-6 py-3 font-semibold text-gray-400 cursor-not-allowed" disabled>
+                🧠 Extracted Memory
+            </button>
+            <button id="tab-personality" class="tab-btn px-6 py-3 font-semibold text-gray-400 cursor-not-allowed" disabled>
+                ✨ Personality Engine
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="content-input" class="tab-content fade-in">
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-md p-6 border border-pink-100">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Enter Chat Messages</h2>
+                    <p class="text-gray-600 mb-4">
+                        Paste your chat messages below (one message per line). The system will extract preferences, emotions, and key facts using rule-based logic.
+                    </p>
+                    
+                    <textarea 
+                        id="messages-input"
+                        placeholder="Enter chat messages here (one per line)...
+
+Example:
+I am John Doe, a computer science student.
+I love coding and building web applications.
+I'm feeling stressed about my upcoming exams.
+My goal is to become a full-stack developer."
+                        class="w-full h-64 p-4 border-2 border-pink-200 rounded-lg focus:border-red-400 focus:outline-none resize-none font-mono text-sm"
+                    ></textarea>
+                    
+                    <div class="flex gap-3 mt-4">
+                        <button 
+                            id="analyze-btn"
+                            class="flex-1 bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-600 hover:to-pink-600 transition-all shadow-md hover:shadow-lg"
+                        >
+                            <span id="analyze-btn-text">🚀 Analyze Messages</span>
+                        </button>
+                        
+                        <button 
+                            id="sample-btn"
+                            class="px-6 py-3 border-2 border-red-500 text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-all"
+                        >
+                            Load Sample
+                        </button>
+                    </div>
+                    
+                    <div id="extraction-method-badge" class="mt-3 hidden">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 border border-blue-300">📋 Rule-Based Analysis</span>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-pink-50 to-red-50 rounded-lg p-6 border border-pink-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">💡 What This Does:</h3>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold mt-1">→</span> 
+                            <span><strong>Memory Extraction:</strong> Identifies preferences, emotional patterns, and key facts</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold mt-1">→</span> 
+                            <span><strong>Personality Engine:</strong> Transforms AI responses into different personality styles</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold mt-1">→</span> 
+                            <span><strong>Rule-Based Logic:</strong> Uses intelligent pattern matching and keyword detection</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold mt-1">→</span> 
+                            <span><strong>No API Required:</strong> Works completely offline with deterministic algorithms</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-memory" class="tab-content hidden"></div>
+        <div id="content-personality" class="tab-content hidden"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-pink-100">GUPPSHUPP Founding AI Engineer Assignment</p>
+            <p class="text-sm text-pink-200 mt-1">Built with Flask + Python • Rule-Based Logic Only</p>
+        </div>
+    </div>
+
+    <script>
+        let resultsData = null;
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                
+                const tabId = btn.id.replace('tab-', '');
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('text-red-600', 'border-b-2', 'border-red-500');
+                    b.classList.add('text-gray-500');
+                });
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+                
+                btn.classList.remove('text-gray-500');
+                btn.classList.add('text-red-600', 'border-b-2', 'border-red-500');
+                document.getElementById(`content-${tabId}`).classList.remove('hidden');
+                document.getElementById(`content-${tabId}`).classList.add('fade-in');
+            });
+        });
+
+        // Load sample messages
+        document.getElementById('sample-btn').addEventListener('click', () => {
+            const sampleMessages = `I am Suryansh Singh, a BCA student at Babu Banarasi Das University.
+My admission number is 22SCSE1430066 and I study computer science.
+I love playing open world games like GTA V and Red Dead Redemption 2.
+I'm really passionate about graphic design and UI/UX work.
+I'm currently in my third year of BCA and enjoying it.
+I feel stressed about my CUET PG preparation these days.
+I want to become a professional game developer in the future.
+My favorite hobby is creating digital art and game concept designs.
+I enjoy learning new programming languages, especially Python and C++.
+I prefer working on personal creative projects over regular assignments.
+I don't like repetitive tasks and boring theoretical lectures.
+I'm very excited about AI and machine learning technologies.
+Sometimes I feel overwhelmed with all the assignments and exam pressure.
+I am planning to pursue game development courses after my BCA.
+My biggest dream is to create my own successful indie game someday.
+I live in Bahraigh, Uttar Pradesh, India with my family.
+I feel genuinely happy when I'm working on creative coding projects.
+I dislike when people don't value creativity and innovative thinking.
+I wish to master Unreal Engine 5 properly within this year.
+I'm stressed about finding the right balance between studies and side projects.
+My friends and family usually call me Surya as a nickname.
+I absolutely love exploring new game mechanics and innovative design patterns.
+I get really annoyed when my code doesn't work as expected after hours of debugging.
+I'm glad and grateful that I chose computer science as my career field.
+I want to work at a top game development studio like Rockstar or Naughty Dog eventually.
+My concrete goal is to build a complete portfolio with at least 3 finished games.
+I enjoy watching game development tutorials and devlogs on YouTube regularly.
+I feel tired sometimes from staying up late night coding and working on projects.
+I'm really into pixel art style and retro game aesthetics from the 90s.
+I am excited about the future possibilities of interactive storytelling in video games.`;
+            
+            document.getElementById('messages-input').value = sampleMessages;
+        });
+
+        // Analyze messages
+        document.getElementById('analyze-btn').addEventListener('click', async () => {
+            const messages = document.getElementById('messages-input').value.trim();
+            
+            if (!messages) {
+                alert('Please enter some messages first!');
+                return;
+            }
+
+            const btn = document.getElementById('analyze-btn');
+            const btnText = document.getElementById('analyze-btn-text');
+            btn.disabled = true;
+            btnText.innerHTML = '<div class="spinner inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"></div> Analyzing...';
+
+            try {
+                const response = await fetch('/extract_memory', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultsData = data;
+                    renderMemory(data.memory);
+                    
+                    // Generate personality responses for a sample message
+                    await generatePersonalityResponses();
+                    
+                    // Show extraction method badge
+                    const badge = document.getElementById('extraction-method-badge');
+                    badge.classList.remove('hidden');
+                    
+                    // Enable other tabs
+                    enableTab('memory');
+                    enableTab('personality');
+                    
+                    // Switch to memory tab
+                    document.getElementById('tab-memory').click();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Failed to analyze messages: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = '🚀 Analyze Messages';
+            }
+        });
+
+        async function generatePersonalityResponses() {
+            // Generate a sample response for demonstration
+            const sampleMessage = "I'm feeling stressed about my work";
+            
+            try {
+                const response = await fetch('/generate_personality', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: sampleMessage })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderPersonalities(data.responses);
+                }
+            } catch (error) {
+                console.error('Failed to generate personality responses:', error);
+            }
+        }
+
+        function enableTab(tabName) {
+            const tab = document.getElementById(`tab-${tabName}`);
+            tab.disabled = false;
+            tab.classList.remove('text-gray-400', 'cursor-not-allowed');
+            tab.classList.add('text-gray-500', 'hover:text-red-400', 'cursor-pointer');
+        }
+
+        function renderMemory(memory) {
+            const container = document.getElementById('content-memory');
+            
+            let html = `
+                <!-- Preferences -->
+                <div class="bg-white rounded-lg shadow-md p-6 border border-pink-100 mb-4 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>❤️</span> User Preferences
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-semibold text-green-600 mb-2 text-lg">✓ Likes</h3>
+                            <div class="space-y-2">
+                                ${memory.preferences.likes.length > 0 ? memory.preferences.likes.map(like => `
+                                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 hover:shadow-md transition-shadow">
+                                        <p class="text-gray-800 font-medium">${like.value}</p>
+                                        <p class="text-sm text-gray-500 mt-1">📍 Message #${like.message_index}</p>
+                                    </div>
+                                `).join('') : '<p class="text-gray-500 italic">No likes detected</p>'}
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-red-600 mb-2 text-lg">✗ Dislikes</h3>
+                            <div class="space-y-2">
+                                ${memory.preferences.dislikes.length > 0 ? memory.preferences.dislikes.map(dislike => `
+                                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500 hover:shadow-md transition-shadow">
+                                        <p class="text-gray-800 font-medium">${dislike.value}</p>
+                                        <p class="text-sm text-gray-500 mt-1">📍 Message #${dislike.message_index}</p>
+                                    </div>
+                                `).join('') : '<p class="text-gray-500 italic">No dislikes detected</p>'}
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-blue-600 mb-2 text-lg">🎯 Goals</h3>
+                            <div class="space-y-2">
+                                ${memory.preferences.goals.length > 0 ? memory.preferences.goals.map(goal => `
+                                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 hover:shadow-md transition-shadow">
+                                        <p class="text-gray-800 font-medium">${goal.value}</p>
+                                        <p class="text-sm text-gray-500 mt-1">📍 Message #${goal.message_index}</p>
+                                    </div>
+                                `).join('') : '<p class="text-gray-500 italic">No goals detected</p>'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emotional Patterns -->
+                <div class="bg-white rounded-lg shadow-md p-6 border border-pink-100 mb-4 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>💗</span> Emotional Patterns
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg border-2 border-purple-200 hover:shadow-lg transition-shadow">
+                            <p class="text-sm text-gray-600 mb-2 font-medium">Dominant Emotion</p>
+                            <p class="text-3xl font-bold text-purple-600 capitalize mb-1">${memory.emotional_patterns.dominant?.emotion || 'N/A'}</p>
+                            <p class="text-sm text-gray-500">Detected ${memory.emotional_patterns.dominant?.count || 0} times</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-pink-50 to-red-50 p-6 rounded-lg border-2 border-pink-200 hover:shadow-lg transition-shadow">
+                            <p class="text-sm text-gray-600 mb-2 font-medium">Secondary Emotion</p>
+                            <p class="text-3xl font-bold text-pink-600 capitalize mb-1">${memory.emotional_patterns.secondary?.emotion || 'N/A'}</p>
+                            <p class="text-sm text-gray-500">Detected ${memory.emotional_patterns.secondary?.count || 0} times</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facts -->
+                <div class="bg-white rounded-lg shadow-md p-6 border border-pink-100 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>👤</span> Key Facts
+                    </h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-3">
+                        ${Object.keys(memory.facts).length > 0 ? Object.entries(memory.facts).map(([key, data]) => {
+                            const displayValue = data.values ? data.values.join(', ') : data.value;
+                            return `
+                            <div class="bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="text-sm text-gray-500 capitalize font-medium">${key.replace(/_/g, ' ')}</p>
+                                    <span class="text-xs font-bold px-2 py-1 rounded-full ${
+                                        data.confidence >= 0.9 ? 'bg-green-100 text-green-700' : 
+                                        data.confidence >= 0.7 ? 'bg-yellow-100 text-yellow-700' : 
+                                        'bg-gray-100 text-gray-700'
+                                    }">
+                                        ${(data.confidence * 100).toFixed(0)}%
+                                    </span>
+                                </div>
+                                <p class="text-lg font-semibold text-gray-800">${displayValue}</p>
+                                <p class="text-xs text-gray-500 mt-1">📍 Message #${data.message_index || data.evidence?.[0] || 'N/A'}</p>
+                            </div>
+                        `}).join('') : '<p class="text-gray-500 italic col-span-2">No facts detected</p>'}
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+
+        function renderPersonalities(personalities) {
+            const container = document.getElementById('content-personality');
+            
+            let html = `
+                <!-- Before -->
+                <div class="bg-white rounded-lg shadow-md p-6 border-2 border-gray-300 mb-4 fade-in">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">BEFORE (Neutral Response)</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed">${personalities.neutral}</p>
+                </div>
+
+                <!-- Calm Mentor -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow-md p-6 border-2 border-blue-200 mb-4 hover:shadow-xl transition-shadow fade-in">
+                    <h2 class="text-2xl font-bold text-blue-800 mb-2">AFTER: Calm Mentor 🧘</h2>
+                    <p class="text-sm text-blue-600 mb-4 font-medium">Wise, structured, encouraging</p>
+                    <div class="bg-white bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-gray-700 text-lg leading-relaxed">${personalities.calm_mentor}</p>
+                    </div>
+                </div>
+
+                <!-- Witty Friend -->
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg shadow-md p-6 border-2 border-yellow-200 mb-4 hover:shadow-xl transition-shadow fade-in">
+                    <h2 class="text-2xl font-bold text-orange-800 mb-2">AFTER: Witty Friend 😎</h2>
+                    <p class="text-sm text-orange-600 mb-4 font-medium">Casual, humorous, energetic</p>
+                    <div class="bg-white bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-gray-700 text-lg leading-relaxed">${personalities.witty_friend}</p>
+                    </div>
+                </div>
+
+                <!-- Therapist -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg shadow-md p-6 border-2 border-green-200 hover:shadow-xl transition-shadow fade-in">
+                    <h2 class="text-2xl font-bold text-green-800 mb-2">AFTER: Therapist 💚</h2>
+                    <p class="text-sm text-green-600 mb-4 font-medium">Empathetic, validating, supportive</p>
+                    <div class="bg-white bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-gray-700 text-lg leading-relaxed">${personalities.therapist}</p>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
