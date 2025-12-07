@@ -17,6 +17,16 @@
 
 ---
 
+## 🌐 Live Demo / Hosted App
+
+Access the deployed app here:
+
+[🚀 Open Hosted App](https://guppshupp-ai-assignment.onrender.com)
+
+Use the web interface to load sample data, analyze messages, and see personality transformations in real time.
+
+---
+
 ## 🎯 Project Overview
 
 This project implements two core AI modules using **purely rule-based logic**:
