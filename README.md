@@ -11,7 +11,7 @@
 
 ## 📺 Demo Video
 
-https://github.com/CodingSuru/guppshupp-ai-assignment/assets/YOUR_USER_ID/demo-video.mp4
+![Demo](demo.gif)
 
 *👆 Watch the full demo showing memory extraction and personality transformations in action*
 
@@ -265,19 +265,6 @@ okay to feel this way. Take your time, and be gentle with yourself."
   }
 }
 ```
-
----
-
-## 🎨 Screenshots
-
-### 1. Input Messages Interface
-![Input Interface](https://via.placeholder.com/800x400/667eea/ffffff?text=Input+Messages+Interface)
-
-### 2. Extracted Memory View
-![Memory View](https://via.placeholder.com/800x400/764ba2/ffffff?text=Extracted+Memory)
-
-### 3. Personality Transformations
-![Personality View](https://via.placeholder.com/800x400/f093fb/ffffff?text=Personality+Engine)
 
 ---
 
